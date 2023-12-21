@@ -15,7 +15,7 @@ class NavigationController extends Controller {
 		return view('pages.frontpage');
 	}
 
-	public function pets(string $type) {
+	public function petsView(string $type) {
 		return view('pages.pets', [
 			'pets' => Pets::all(),
 			'breeds' => Breeds::all(),
@@ -24,15 +24,15 @@ class NavigationController extends Controller {
 		]);
 	}
 
-	public function otherPets() {
-		return $this->pets("");
+	public function otherPetsView() {
+		return $this->petsView("");
 	}
 
 	public function aboutUsView() {
 		return view('pages.aboutus');
 	}
 
-	public function singlePet(string $pet_id) {
+	public function singlePetView(string $pet_id) {
 		//Get the amount of each type of reaction for this pet
 		$reaction_counts = ReactionController::petReactionCountsAll($pet_id);
 
